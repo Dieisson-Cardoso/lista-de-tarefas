@@ -1,31 +1,33 @@
 let inputNovaTarefa = document.querySelector('#inputNovaTarefa');
-let btnAdcTarefa = document.querySelector('#btnAdcTarefa');
-let listaTarefa = document.querySelector('#listaTarefa');
+let adcTarefa = document.querySelector('#adcTarefa');
+let listaTarefa = document.querySelector('#listaTarefas');
 
 inputNovaTarefa.addEventListener('keypress', (e) => {
     if(e.keyCode == 13) {
         let tarefa =  {
             name: inputNovaTarefa.value,
             id: gerarId(),
-    }
+    };
     adicionarTarefa(tarefa);
 
-}});5
-btnAdcTarefa.addEventListener('click', (e) => {
+}});
+adcTarefa.addEventListener('click', (e) => {
     let tarefa =  {
         name: inputNovaTarefa.value,
         id: gerarId(),
-    }
+    };
     adicionarTarefa(tarefa);
 });
 
 function gerarId(){
-    return Math.floor(Math.random() = 3000);
+    return Math.floor(Math.random() == 3000);
 }
 
 function adicionarTarefa(tarefa) {
 
-    let li = criarTagLI(tarefa)
+    let li = criarTagLI(tarefa);
+    console.log(li);
+    console.log(listaTarefa);
     listaTarefa.appendChild(li);
     inputNovaTarefa.value = '';
 }
@@ -36,16 +38,16 @@ function criarTagLI(tarefa){
 
     let span = document.createElement('span'); 
     span.classList.add('textoTarefa');
-    span.innerHTML = tarefa.nome;
+    span.innerHTML = tarefa.name;
 
     let div = document.createElement('div');
 
     let btnEditar = document.createElement('button');
     btnEditar.classList.add('btnAcaoED');
-    btnEditar.innerHTML = btnAcaoED
+    btnEditar.innerHTML = 'Editar';
     let btnExluir = document.createElement('button');
     btnExluir.classList.add('btnAcaoEX');
-    btnExluir.innerHTML = btnAcaoEX
+    btnExluir.innerHTML = 'Excuir';
     div.appendChild(btnEditar);
     div.appendChild(btnExluir);
 
